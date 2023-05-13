@@ -30,7 +30,8 @@
                                 <a asp-area="" asp-controller="Home" asp-action="Index">Категории</a>
                                 <ul>
                                    
-                                    <partial name="_ViewCategories"/>
+                                    @*<partial name="_ViewCategories" />*@
+                                    @await Component.InvokeAsync("GetCategories")
                                 </ul>
                             </div>
                         </li>
@@ -41,9 +42,6 @@
                             <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                        
-                           
-                      
-                        @*<partial name="_LoginPartial" />*@
                     </ul>
                     
                    
@@ -57,9 +55,7 @@
                 <div class="navbar-rigth">
                     <ul class="navbar_custom">
 
-                        
-                        @*<partial name="~/Views/Categories/GetCategories.cshtml" />*@
-                        <partial name="_ViewCategories" />
+                        <partial name="_LoginPartial" />
                     </ul>
                  </div>
             </div>
@@ -69,6 +65,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            
             @RenderBody()
         </main>
     </div>

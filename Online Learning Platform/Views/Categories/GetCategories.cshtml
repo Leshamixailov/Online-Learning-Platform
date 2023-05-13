@@ -1,18 +1,10 @@
 ﻿@model IEnumerable<Online_Learning_Platform.Models.Category>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-@foreach (var item in Model)
-{
-
-
-
-    <li>
-        <a href=""> @Html.DisplayFor(modelItem => item.Name)</a>
-
-    </li>
-
-
-}
+    @foreach (var a in Model)
+    {
+        <li>
+        <a href=""> @a.Name</a>
+        </li>
+    }
+    

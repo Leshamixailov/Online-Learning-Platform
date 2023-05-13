@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\source\\repos\\Online Learning Platform\\Online Learning Platform\\Online Learning Platform.csproj": {}
+    "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\source\\repos\\Online Learning Platform\\Online Learning Platform\\Online Learning Platform.csproj": {
+    "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\source\\repos\\Online Learning Platform\\Online Learning Platform\\Online Learning Platform.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
         "projectName": "Online Learning Platform",
-        "projectPath": "C:\\Users\\admin\\source\\repos\\Online Learning Platform\\Online Learning Platform\\Online Learning Platform.csproj",
+        "projectPath": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\source\\repos\\Online Learning Platform\\Online Learning Platform\\obj\\",
+        "outputPath": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

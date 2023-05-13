@@ -18,10 +18,8 @@ namespace Online_Learning_Platform.Controllers
 
         public IActionResult Index()
         {
-            
 
-
-            return View(_context.Categoreis.ToListAsync());
+            return View();
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Online_Learning_Platform.Models.Category>
+
+
+
+@foreach (var item in Model) {
+       
+    <li>
+        <a href="">@Html.DisplayFor(modelItem => item.Name)</a>
+    </li>
+}
+    
