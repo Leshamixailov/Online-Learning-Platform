@@ -30,17 +30,12 @@
                                 <a asp-area="" asp-controller="Home" asp-action="Index">Категории</a>
                                 <ul>
                                    
-                                    <li>
-                                        <a href="">Item 1</a>
-
-                                    </li>
-                                    <li><a href="">Item 2</a></li>
-                                   
+                                    <partial name="_ViewCategories"/>
                                 </ul>
                             </div>
                         </li>
                         <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index" >Home</a>
                         </li>
                         <li>
                             <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -63,7 +58,8 @@
                     <ul class="navbar_custom">
 
                         
-                        <partial name="_LoginPartial" />
+                        @*<partial name="~/Views/Categories/GetCategories.cshtml" />*@
+                        <partial name="_ViewCategories" />
                     </ul>
                  </div>
             </div>
