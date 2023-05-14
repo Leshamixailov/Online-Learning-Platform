@@ -22,6 +22,7 @@ namespace Online_Learning_Platform.Models
                        Controller = "",
                        Action = "",
                        Route = ""
+                      
                    },
                 new Category
                 {
@@ -30,6 +31,7 @@ namespace Online_Learning_Platform.Models
                     Controller = "",
                     Action = "",
                     Route = ""
+                   
                 },
                  new Category
                  {
@@ -38,6 +40,7 @@ namespace Online_Learning_Platform.Models
                      Controller = "",
                      Action = "",
                      Route = ""
+                     
                  },
                   new Category
                   {
@@ -46,10 +49,40 @@ namespace Online_Learning_Platform.Models
                       Controller = "",
                       Action = "",
                       Route = ""
+                    
                   }
 
 
-            );
+            ) ;
+            modelBuilder.Entity<SubCategory>().HasData(
+                  new SubCategory
+                  {
+                      Id = 1,
+                      Name = "Податегория 1",
+                      CategoryID=1,
+                     
+                  },
+               new SubCategory
+               {
+                   Id = 2,
+                   Name = "Податегория 2",
+                   CategoryID = 2,
+               },
+                new SubCategory
+                {
+                    Id = 3,
+                    Name = "Податегория 3",
+                    CategoryID = 3,
+                },
+                 new SubCategory
+                 {
+                     Id = 4,
+                     Name = "Податегория 4",
+                     CategoryID = 4,
+                 }
+
+
+           );
         }
         
     }

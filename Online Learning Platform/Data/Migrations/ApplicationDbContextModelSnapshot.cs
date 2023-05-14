@@ -284,6 +284,54 @@ namespace Online_Learning_Platform.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Online_Learning_Platform.Models.SubCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryID");
+
+                    b.ToTable("SubCategoreis");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryID = 1,
+                            Name = "Податегория 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryID = 2,
+                            Name = "Податегория 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryID = 3,
+                            Name = "Податегория 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryID = 4,
+                            Name = "Податегория 4"
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -333,6 +381,17 @@ namespace Online_Learning_Platform.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.SubCategory", b =>
+                {
+                    b.HasOne("Online_Learning_Platform.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

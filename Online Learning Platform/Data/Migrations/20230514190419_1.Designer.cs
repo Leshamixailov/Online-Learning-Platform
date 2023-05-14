@@ -12,8 +12,8 @@ using Online_Learning_Platform.Data;
 namespace Online_Learning_Platform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230512235112_SeedData")]
-    partial class SeedData
+    [Migration("20230514190419_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -249,7 +249,7 @@ namespace Online_Learning_Platform.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categoreis");
 
                     b.HasData(
                         new

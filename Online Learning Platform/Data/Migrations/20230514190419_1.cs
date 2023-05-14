@@ -4,12 +4,12 @@
 
 namespace Online_Learning_Platform.Data.Migrations
 {
-    public partial class SeedData : Migration
+    public partial class _1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categoreis",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,11 +21,11 @@ namespace Online_Learning_Platform.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categoreis", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Category",
+                table: "Categoreis",
                 columns: new[] { "Id", "Action", "Controller", "Name", "Route" },
                 values: new object[,]
                 {
@@ -39,7 +39,7 @@ namespace Online_Learning_Platform.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categoreis");
         }
     }
 }
