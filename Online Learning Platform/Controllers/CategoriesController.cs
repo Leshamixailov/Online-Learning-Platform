@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,15 +23,10 @@ namespace Online_Learning_Platform.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.Categoreis != null ? 
-                          View(await _context.Categoreis.ToListAsync()) :
+                          View(await _context.Categoreis.Include(s => s.SubCategory).ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Categoreis'  is null.");
         }
-        public async Task<IActionResult> GetCategories()
-        {
-            return _context.Categoreis != null ?
-                        View(await _context.Categoreis.ToListAsync()) :
-                        Problem("Entity set 'ApplicationDbContext.Categoreis'  is null.");
-        }
+
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
         {

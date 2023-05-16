@@ -13,7 +13,6 @@
     <thead>
         <tr>
             <th>
-              
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -52,3 +51,21 @@
 }
     </tbody>
 </table>
+@foreach (var item in Model)
+{
+    <ul>
+        <li>
+            <a>@Html.DisplayFor(modelItem => item.Name)</a>
+
+            <ul>
+            
+                @foreach (var a in item.SubCategory.Where((b)=>b.CategoryId==item.Id))
+                {
+                    <li>
+                         @a.Name
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+}

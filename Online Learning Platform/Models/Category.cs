@@ -7,7 +7,7 @@
         public string ? Controller { get; set; }
         public string ? Action { get; set; }
         public string ? Route { get; set; }
-       
 
+        public ICollection<SubCategory> ? SubCategory { get; set; }
     }
 }

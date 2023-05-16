@@ -70,10 +70,14 @@ body {
     .navbar_custom li:hover {
         background-color: #f90;
     }
-
-    .navbar_custom ul li:hover {
-        background-color: #666;
+    .navbar_custom li ul li ul li {
+        display:none;
     }
+    .navbar_custom li ul li:hover ul li {
+        display: table-row;
+       
+    }
+
 
 .container_navbar_custom {
     text-align: center;

@@ -48,7 +48,7 @@ namespace Online_Learning_Platform.Controllers
         // GET: SubCategories/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Categoreis, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Online_Learning_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,CategoryID")] SubCategory subCategory)
+        public async Task<IActionResult> Create([Bind("Id,Name,CategoryId")] SubCategory subCategory)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Online_Learning_Platform.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryID);
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryId);
             return View(subCategory);
         }
 
@@ -82,7 +82,7 @@ namespace Online_Learning_Platform.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryID);
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryId);
             return View(subCategory);
         }
 
@@ -91,7 +91,7 @@ namespace Online_Learning_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategoryID")] SubCategory subCategory)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategoryId")] SubCategory subCategory)
         {
             if (id != subCategory.Id)
             {
@@ -118,7 +118,7 @@ namespace Online_Learning_Platform.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryID);
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryId);
             return View(subCategory);
         }
 

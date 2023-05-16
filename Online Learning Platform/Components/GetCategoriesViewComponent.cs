@@ -16,7 +16,7 @@ namespace Online_Learning_Platform.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
            
-            var mc = await _context.Categoreis.ToListAsync();
+            var mc = await _context.Categoreis.Include(s => s.SubCategory).ToListAsync();
             return View(mc);
         }
     }

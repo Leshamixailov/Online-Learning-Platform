@@ -3,9 +3,20 @@
 
 
 @foreach (var item in Model) {
-       
-    <li>
+
+    <li class="subcategory">
+        
         <a href="">@Html.DisplayFor(modelItem => item.Name)</a>
+
+            <ul >
+
+            @foreach (var a in item.SubCategory.Where((b) => b.CategoryId == item.Id))
+            {
+                <li>
+                    <a href="">@a.Name</a>
+                </li>
+            }
+            </ul>
+        
     </li>
 }
-    

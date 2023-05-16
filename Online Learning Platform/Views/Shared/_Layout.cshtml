@@ -28,7 +28,7 @@
                         <li>
                             <div class="category">
                                 <a asp-area="" asp-controller="Home" asp-action="Index">Категории</a>
-                                <ul>
+                                <ul id="view">
                                    
                                     @*<partial name="_ViewCategories" />*@
                                     @await Component.InvokeAsync("GetCategories")

@@ -16,6 +16,9 @@ namespace Online_Learning_Platform.Data
         }
         public DbSet<Category> Categoreis { get; set; }
         public DbSet<SubCategory> SubCategoreis { get; set; }
+        //public DbSet<Category_SubCategory> Category_SubCategory { get; set; }
+        
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

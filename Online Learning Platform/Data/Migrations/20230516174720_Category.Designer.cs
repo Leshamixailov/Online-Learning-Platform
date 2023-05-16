@@ -12,8 +12,8 @@ using Online_Learning_Platform.Data;
 namespace Online_Learning_Platform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230514191633_SubCategory")]
-    partial class SubCategory
+    [Migration("20230516174720_Category")]
+    partial class Category
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -294,7 +294,7 @@ namespace Online_Learning_Platform.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -303,7 +303,7 @@ namespace Online_Learning_Platform.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryID");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("SubCategoreis");
 
@@ -311,26 +311,26 @@ namespace Online_Learning_Platform.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryID = 1,
-                            Name = "Податегория 1"
+                            CategoryId = 1,
+                            Name = "Подкатегория 1"
                         },
                         new
                         {
                             Id = 2,
-                            CategoryID = 2,
-                            Name = "Податегория 2"
+                            CategoryId = 2,
+                            Name = "Подкатегория 2"
                         },
                         new
                         {
                             Id = 3,
-                            CategoryID = 3,
-                            Name = "Податегория 3"
+                            CategoryId = 3,
+                            Name = "Подкатегория 3"
                         },
                         new
                         {
                             Id = 4,
-                            CategoryID = 4,
-                            Name = "Податегория 4"
+                            CategoryId = 4,
+                            Name = "Подкатегория 4"
                         });
                 });
 
@@ -388,12 +388,17 @@ namespace Online_Learning_Platform.Data.Migrations
             modelBuilder.Entity("Online_Learning_Platform.Models.SubCategory", b =>
                 {
                     b.HasOne("Online_Learning_Platform.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryID")
+                        .WithMany("SubCategory")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.Category", b =>
+                {
+                    b.Navigation("SubCategory");
                 });
 #pragma warning restore 612, 618
         }
