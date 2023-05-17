@@ -4,19 +4,21 @@
 
 @foreach (var item in Model) {
 
-    <li class="subcategory">
-        
-        <a href="">@Html.DisplayFor(modelItem => item.Name)</a>
-
-            <ul >
+    <li  class="nav-item dropdown">
+        <a class="dropdown-item" href="#">
+            @Html.DisplayFor(modelItem => item.Name)
+        </a>
+        @*<a href="">@Html.DisplayFor(modelItem => item.Name)</a>*@
+@*
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
             @foreach (var a in item.SubCategory.Where((b) => b.CategoryId == item.Id))
             {
-                <li>
+                <li class="dropdown-item">
                     <a href="">@a.Name</a>
                 </li>
             }
-            </ul>
+            </ul>*@
         
     </li>
 }
