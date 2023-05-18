@@ -6,13 +6,14 @@ using Online_Learning_Platform.Models;
 
 namespace Online_Learning_Platform.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
 
        
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+           
         }
         public DbSet<Category> Categoreis { get; set; }
         public DbSet<SubCategory> SubCategoreis { get; set; }
