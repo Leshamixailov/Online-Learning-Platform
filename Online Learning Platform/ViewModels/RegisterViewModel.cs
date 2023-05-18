@@ -5,6 +5,8 @@ namespace Online_Learning_Platform.ViewModels
 {
     public class RegisterViewModel
     {
+        public string NickName { get; set; }
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }

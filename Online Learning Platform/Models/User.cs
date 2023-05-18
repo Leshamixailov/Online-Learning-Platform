@@ -5,5 +5,6 @@ namespace Online_Learning_Platform.Models
     public class User : IdentityUser
     {
         public int Year { get; set; }
+        public string NickName { get; set; }
     }
 }
