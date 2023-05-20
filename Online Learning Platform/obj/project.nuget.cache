@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+xRNDPb8gGmJI5W/MGtG7/+eOnXT5bhWUNOmPSXtUN+qCcNPZzZlkyKy/8DjVKW2UpMRGx54vuiUp87KowNaJA==",
+  "dgSpecHash": "rFR+OUSvtMyIGbVcQWgg0KmQKMloNvfsj7K+I1+SX1zn1jwjd8X1pB5fDPJgghKG6yXo+etQPpGUKDfua+6/Zw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Source\\Repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
+  "projectFilePath": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

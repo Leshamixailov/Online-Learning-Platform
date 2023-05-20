@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Online_Learning_Platform.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Online_Learning_Platform.Models
 {
@@ -85,41 +87,30 @@ namespace Online_Learning_Platform.Models
 
 
            );
-            // modelBuilder.Entity<Category_SubCategory>().HasData(
-            //       new Category_SubCategory
-            //       {
-            //           Id = 1,
-            //           CategoryID = 1,
-            //           SubCategoryID = 1
+            User user = new User
+            {
+                Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
+                Email = "Admin",
+                NormalizedEmail = "ADMIN",
+                UserName = "Admin",
+                NormalizedUserName = "ADMIN",
 
-            //       },
-            //    new Category_SubCategory
-            //    {
-            //        Id = 2,
-            //        CategoryID = 2,
-            //        SubCategoryID = 2
+                EmailConfirmed = false,
 
-            //    },
-            //     new Category_SubCategory
-            //     {
-            //         Id = 3,
-            //         CategoryID = 3,
-            //         SubCategoryID = 3
-
-            //     },
-            //      new Category_SubCategory
-            //      {
-            //          Id = 4,
-            //          CategoryID = 4,
-            //          SubCategoryID = 4
-
-            //      }
+                //SecurityStamp = "AO2TEIOS5CRVGEJCTIADNQSHLMFZWP3U",
+                Year = 1010,
+                NickName = "Admin",
+                LockoutEnabled = true
+            };
+            var hasher = new PasswordHasher<User>();
+            user.PasswordHash = hasher.HashPassword(user, "Temporarypass1!");
 
 
-
-            //); 
-
+            modelBuilder.Entity<User>().HasData(
+            user
+            );
         }
+
 
     }
 }

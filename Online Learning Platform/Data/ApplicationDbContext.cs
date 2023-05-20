@@ -8,12 +8,13 @@ namespace Online_Learning_Platform.Data
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
-
        
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-           
+            
+          
         }
         public DbSet<Category> Categoreis { get; set; }
         public DbSet<SubCategory> SubCategoreis { get; set; }
@@ -24,6 +25,7 @@ namespace Online_Learning_Platform.Data
         {
             base.OnModelCreating(modelBuilder);
             new DbInitializer(modelBuilder).Seed();
+           
         }
     }
 }
