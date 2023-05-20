@@ -7,4 +7,5 @@ Students can add courses to their luggage and rate the course and leave comments
 
 <h1>Status:<h1>
 <h3>in development<h3>
-
+<p>UserName:Admin</p>
+<p>Password:Temporarypass1!</p>
