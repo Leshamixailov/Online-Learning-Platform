@@ -88,7 +88,7 @@ namespace Online_Learning_Platform.Models
 
 
            );
-            User user = new User
+            User admin = new User
             {
                 Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                 Email = "Admin",
@@ -103,15 +103,32 @@ namespace Online_Learning_Platform.Models
                 NickName = "Admin",
                 LockoutEnabled = true
             };
+            User Teacher = new User
+            {
+                Id = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
+                Email = "Teacher",
+                NormalizedEmail = "TEACHER",
+                UserName = "Teacher",
+                NormalizedUserName = "TEACHER",
+
+                EmailConfirmed = false,
+
+               
+                Year = 1010,
+                NickName = "Teacher",
+                LockoutEnabled = true
+            };
             var hasher = new PasswordHasher<User>();
-            user.PasswordHash = hasher.HashPassword(user, "Temporarypass1!");
+          
+            admin.PasswordHash = hasher.HashPassword(admin, "Temporarypass1!");
+            Teacher.PasswordHash = hasher.HashPassword(Teacher, "Temporarypass2!");
 
 
             modelBuilder.Entity<User>().HasData(
-            user
+            admin,
+            Teacher
             );
-            Guid guidAdmin =new Guid();
-            Guid guidManager = new Guid();
+            
             modelBuilder.Entity<IdentityRole>().HasData(new List<IdentityRole>
             {
                 new IdentityRole {
@@ -121,8 +138,8 @@ namespace Online_Learning_Platform.Models
                 },
                 new IdentityRole {
                 Id ="fab4fac1-c546-41de-aebc-a14da6895711",
-                Name = "Manager",
-                NormalizedName = "MANAGER"
+                Name = "Teacher",
+                NormalizedName = "TEACHER"
                 }
             });
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(
@@ -130,6 +147,11 @@ namespace Online_Learning_Platform.Models
                 {
                     RoleId = "c7b013f0-5201-4317-abd8-c211f91b7330",
                     UserId = "02174cf0–9412–4cfe - afbf - 59f706d72cf6"
+                },
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "fab4fac1-c546-41de-aebc-a14da6895711",
+                    UserId = "06674cf0–5812–4cfe - afbf - 59f706d72cf6"
                 }
             ) ;
         }
