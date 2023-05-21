@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Online_Learning_Platform.Data;
+using System.Data;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Online_Learning_Platform.Models
@@ -109,6 +110,28 @@ namespace Online_Learning_Platform.Models
             modelBuilder.Entity<User>().HasData(
             user
             );
+            Guid guidAdmin =new Guid();
+            Guid guidManager = new Guid();
+            modelBuilder.Entity<IdentityRole>().HasData(new List<IdentityRole>
+            {
+                new IdentityRole {
+                Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+                },
+                new IdentityRole {
+                Id ="fab4fac1-c546-41de-aebc-a14da6895711",
+                Name = "Manager",
+                NormalizedName = "MANAGER"
+                }
+            });
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "c7b013f0-5201-4317-abd8-c211f91b7330",
+                    UserId = "02174cf0–9412–4cfe - afbf - 59f706d72cf6"
+                }
+            ) ;
         }
 
 
