@@ -9,113 +9,133 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Online_Learning_Platform
 build_property.RootNamespace = Online_Learning_Platform
-build_property.ProjectDir = C:\Users\admin\source\repos\Online-Learning-Platform\Online Learning Platform\
+build_property.ProjectDir = C:\Users\admin\Source\Repos\Online-Learning-Platform2\Online Learning Platform\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\admin\source\repos\Online-Learning-Platform\Online Learning Platform
+build_property.MSBuildProjectDirectory = C:\Users\admin\Source\Repos\Online-Learning-Platform2\Online Learning Platform
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Account/Login.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Account/Register.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Categories/Create.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Categories/Delete.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Categories/Details.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Categories/Edit.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Categories/Index.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Home/Index.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Courses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Courses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Courses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Courses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Courses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Home/Privacy.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Roles/Edit.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Roles/Index.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Roles/UserList.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Roles/UserList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcVXNlckxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Shared/Components/GetCategories/Default.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Shared/Components/GetCategories/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcR2V0Q2F0ZWdvcmllc1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Shared/Error.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Shared/_ViewCategories.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Shared/_ViewCategories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaWV3Q2F0ZWdvcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/SubCategories/Create.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/SubCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/SubCategories/Delete.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/SubCategories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/SubCategories/Details.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/SubCategories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/SubCategories/Edit.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/SubCategories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/SubCategories/Index.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/SubCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Users/Index.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/_ViewImports.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/_ViewStart.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/admin/source/repos/Online-Learning-Platform/Online Learning Platform/Views/Shared/_Layout.cshtml]
+[C:/Users/admin/Source/Repos/Online-Learning-Platform2/Online Learning Platform/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-50tlk4vjjg
