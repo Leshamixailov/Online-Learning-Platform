@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +15,15 @@ namespace Online_Learning_Platform.Controllers
 {
     public class CoursesController : Controller
     {
+
+        private readonly UserManager<User> _userManager;
+        
         private readonly ApplicationDbContext _context;
 
-        public CoursesController(ApplicationDbContext context)
+        public CoursesController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Courses
@@ -49,8 +56,9 @@ namespace Online_Learning_Platform.Controllers
         // GET: Courses/Create
         public IActionResult Create()
         {
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            
+            ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Name");
+           
             return View();
         }
 
@@ -61,6 +69,9 @@ namespace Online_Learning_Platform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Image,UserId,SubCategoryId")] Course course)
         {
+            var id=_userManager.FindByNameAsync(course.UserId).Result.Id;
+            course.UserId = id;
+            
             if (ModelState.IsValid)
             {
                 _context.Add(course);
@@ -68,7 +79,7 @@ namespace Online_Learning_Platform.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Id", course.SubCategoryId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", course.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "NickName", "NickName", course.UserId);
             return View(course);
         }
 
