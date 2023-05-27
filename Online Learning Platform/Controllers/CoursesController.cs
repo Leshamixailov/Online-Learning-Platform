@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.Claims;
@@ -17,7 +18,7 @@ namespace Online_Learning_Platform.Controllers
     {
 
         private readonly UserManager<User> _userManager;
-        
+
         private readonly ApplicationDbContext _context;
 
         public CoursesController(ApplicationDbContext context, UserManager<User> userManager)
@@ -56,9 +57,9 @@ namespace Online_Learning_Platform.Controllers
         // GET: Courses/Create
         public IActionResult Create()
         {
-            
+
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Name");
-           
+
             return View();
         }
 
@@ -67,20 +68,33 @@ namespace Online_Learning_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Image,UserId,SubCategoryId")] Course course)
+        public async Task<IActionResult> Create(CourseViewModel CourseViewModel)
         {
-            var id=_userManager.FindByNameAsync(course.UserId).Result.Id;
+            Course course = new Course();
+
+            var id = _userManager.FindByNameAsync(CourseViewModel.UserId).Result.Id;
             course.UserId = id;
-            
-            if (ModelState.IsValid)
+            course.SubCategoryId = CourseViewModel.SubCategoryId;
+            course.Description = CourseViewModel.Description;
+            course.Name = CourseViewModel.Name;
+            if (CourseViewModel.Image != null)
             {
-                _context.Add(course);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                byte[] imageData = null;
+                // считываем переданный файл в массив байтов
+                using (var binaryReader = new BinaryReader(CourseViewModel.Image.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)CourseViewModel.Image.Length);
+                }
+                // установка массива байтов
+                course.Image = imageData;
             }
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Id", course.SubCategoryId);
-            ViewData["UserId"] = new SelectList(_context.Users, "NickName", "NickName", course.UserId);
-            return View(course);
+
+
+
+            _context.Add(course);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Courses/Edit/5
@@ -172,14 +186,14 @@ namespace Online_Learning_Platform.Controllers
             {
                 _context.Courses.Remove(course);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CourseExists(int id)
         {
-          return (_context.Courses?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Courses?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
