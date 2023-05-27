@@ -12,14 +12,14 @@ using Online_Learning_Platform.Data;
 namespace Online_Learning_Platform.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230521163505_roles")]
-    partial class roles
+    [Migration("20230527211913_LessonModel")]
+    partial class LessonModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.15")
+                .HasAnnotation("ProductVersion", "6.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -54,16 +54,16 @@ namespace Online_Learning_Platform.Migrations
                         new
                         {
                             Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
-                            ConcurrencyStamp = "e60bf21a-a59f-4b62-8d1f-974db67646f8",
+                            ConcurrencyStamp = "fd7137f0-119e-4af0-8f59-42ab531ee746",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "fab4fac1-c546-41de-aebc-a14da6895711",
-                            ConcurrencyStamp = "9d8795a7-be11-4513-9c07-47f757560e29",
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
+                            ConcurrencyStamp = "7d77dd20-e03c-4ece-ad16-e56665d400b1",
+                            Name = "Teacher",
+                            NormalizedName = "TEACHER"
                         });
                 });
 
@@ -158,6 +158,11 @@ namespace Online_Learning_Platform.Migrations
                         {
                             UserId = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                             RoleId = "c7b013f0-5201-4317-abd8-c211f91b7330"
+                        },
+                        new
+                        {
+                            UserId = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
+                            RoleId = "fab4fac1-c546-41de-aebc-a14da6895711"
                         });
                 });
 
@@ -238,6 +243,69 @@ namespace Online_Learning_Platform.Migrations
                             Name = "Категория 4",
                             Route = ""
                         });
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SubCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubCategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.Lesson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("Online_Learning_Platform.Models.SubCategory", b =>
@@ -364,18 +432,36 @@ namespace Online_Learning_Platform.Migrations
                         {
                             Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0b0f10dd-eab5-4dfd-94c9-3d10843a01c2",
+                            ConcurrencyStamp = "412e3c3f-b739-4271-9b51-d7877a503484",
                             Email = "Admin",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Admin",
                             NormalizedEmail = "ADMIN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFntkxXT6KFUOTfj211/9qSUMdn906WCA4bLuUbTL5ajAu/5c6kdq9oZCpEldZOuQg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECH47ltWZTssE5WwBMwJCBxGgXNmvDuVNmXxYwZRMChjOPtZ9+DBTRRrEQYlHYvniA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e0437faa-feb8-4ae8-867d-eab428cc2ae6",
+                            SecurityStamp = "b082ccbd-05f9-4c76-96b1-f68741d32052",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
+                            Year = 1010
+                        },
+                        new
+                        {
+                            Id = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "1442e388-9727-43b7-a189-62a2e6c8efef",
+                            Email = "Teacher",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NickName = "Teacher",
+                            NormalizedEmail = "TEACHER",
+                            NormalizedUserName = "TEACHER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHtNjfDXIX3Mv+rQAbLvMlpMGc+bfVe3nnAo2CPb2TQGJVTVxUYeKrseoQ44QWJqcA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "11cb076b-49a1-4e05-9002-e89dd924ae49",
+                            TwoFactorEnabled = false,
+                            UserName = "Teacher",
                             Year = 1010
                         });
                 });
@@ -429,6 +515,36 @@ namespace Online_Learning_Platform.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.Course", b =>
+                {
+                    b.HasOne("Online_Learning_Platform.Models.SubCategory", "SubCategory")
+                        .WithMany()
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Online_Learning_Platform.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SubCategory");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.Lesson", b =>
+                {
+                    b.HasOne("Online_Learning_Platform.Models.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("Online_Learning_Platform.Models.SubCategory", b =>

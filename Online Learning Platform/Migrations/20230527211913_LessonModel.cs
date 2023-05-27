@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Online_Learning_Platform.Migrations
 {
-    public partial class CustomUserAndCategory : Migration
+    public partial class LessonModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +29,7 @@ namespace Online_Learning_Platform.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
+                    NickName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -191,6 +192,75 @@ namespace Online_Learning_Platform.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Courses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SubCategoryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Courses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Courses_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Courses_SubCategoreis_SubCategoryId",
+                        column: x => x.SubCategoryId,
+                        principalTable: "SubCategoreis",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lessons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lessons", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Lessons_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "c7b013f0-5201-4317-abd8-c211f91b7330", "fd7137f0-119e-4af0-8f59-42ab531ee746", "Admin", "ADMIN" },
+                    { "fab4fac1-c546-41de-aebc-a14da6895711", "7d77dd20-e03c-4ece-ad16-e56665d400b1", "Teacher", "TEACHER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NickName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Year" },
+                values: new object[,]
+                {
+                    { "02174cf0–9412–4cfe - afbf - 59f706d72cf6", 0, "412e3c3f-b739-4271-9b51-d7877a503484", "Admin", false, true, null, "Admin", "ADMIN", "ADMIN", "AQAAAAEAACcQAAAAECH47ltWZTssE5WwBMwJCBxGgXNmvDuVNmXxYwZRMChjOPtZ9+DBTRRrEQYlHYvniA==", null, false, "b082ccbd-05f9-4c76-96b1-f68741d32052", false, "Admin", 1010 },
+                    { "06674cf0–5812–4cfe - afbf - 59f706d72cf6", 0, "1442e388-9727-43b7-a189-62a2e6c8efef", "Teacher", false, true, null, "Teacher", "TEACHER", "TEACHER", "AQAAAAEAACcQAAAAEHtNjfDXIX3Mv+rQAbLvMlpMGc+bfVe3nnAo2CPb2TQGJVTVxUYeKrseoQ44QWJqcA==", null, false, "11cb076b-49a1-4e05-9002-e89dd924ae49", false, "Teacher", 1010 }
+                });
+
             migrationBuilder.InsertData(
                 table: "Categoreis",
                 columns: new[] { "Id", "Action", "Controller", "Name", "Route" },
@@ -200,6 +270,15 @@ namespace Online_Learning_Platform.Migrations
                     { 2, "", "", "Категория 2", "" },
                     { 3, "", "", "Категория 3", "" },
                     { 4, "", "", "Категория 4", "" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "c7b013f0-5201-4317-abd8-c211f91b7330", "02174cf0–9412–4cfe - afbf - 59f706d72cf6" },
+                    { "fab4fac1-c546-41de-aebc-a14da6895711", "06674cf0–5812–4cfe - afbf - 59f706d72cf6" }
                 });
 
             migrationBuilder.InsertData(
@@ -253,6 +332,21 @@ namespace Online_Learning_Platform.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Courses_SubCategoryId",
+                table: "Courses",
+                column: "SubCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Courses_UserId",
+                table: "Courses",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lessons_CourseId",
+                table: "Lessons",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SubCategoreis_CategoryId",
                 table: "SubCategoreis",
                 column: "CategoryId");
@@ -276,13 +370,19 @@ namespace Online_Learning_Platform.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "SubCategoreis");
+                name: "Lessons");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Courses");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "SubCategoreis");
 
             migrationBuilder.DropTable(
                 name: "Categoreis");
