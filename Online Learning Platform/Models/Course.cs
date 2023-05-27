@@ -12,6 +12,6 @@
         public SubCategory? SubCategory { get; set; }
         public User? User { get; set; }
 
-       // public ICollection<Lesson>? Lesson { get; set; }
+        public ICollection<Lesson>? Lessons { get; set; }
     }
 }

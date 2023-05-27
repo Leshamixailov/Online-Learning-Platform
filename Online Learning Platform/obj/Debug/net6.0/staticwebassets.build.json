@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4qE+eQrk9UN0C+HbJtkv57Yiw5f0ENgSuKvAzgbz0mI=",
+  "Hash": "wWLDRbcnhYx8GRzh9A1M4316x5vB8NrvyU/yqfQUwZw=",
   "Source": "Online Learning Platform",
   "BasePath": "_content/Online Learning Platform",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\wwwroot\\Files\\1.jpg",
+      "SourceId": "Online Learning Platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\wwwroot\\",
+      "BasePath": "_content/Online Learning Platform",
+      "RelativePath": "Files/1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\1.jpg"
     },
     {
       "Identity": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\wwwroot\\Files\\152740 (540p).mp4",

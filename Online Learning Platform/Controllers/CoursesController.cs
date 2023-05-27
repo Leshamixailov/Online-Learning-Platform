@@ -45,6 +45,7 @@ namespace Online_Learning_Platform.Controllers
             var course = await _context.Courses
                 .Include(c => c.SubCategory)
                 .Include(c => c.User)
+                 .Include(c => c.Lessons)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (course == null)
             {
