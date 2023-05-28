@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wWLDRbcnhYx8GRzh9A1M4316x5vB8NrvyU/yqfQUwZw=",
+  "Hash": "nWaD4TYo0f81vBs4oGMjByy7YLrC023xGO9qjs2DR7A=",
   "Source": "Online Learning Platform",
   "BasePath": "_content/Online Learning Platform",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Files\\152740 (540p).mp4"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\wwwroot\\Files\\BB_fd9db3f9-1561-4bf5-8652-2a2fef9530b4_FPpreview.mp4",
+      "SourceId": "Online Learning Platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\wwwroot\\",
+      "BasePath": "_content/Online Learning Platform",
+      "RelativePath": "Files/BB_fd9db3f9-1561-4bf5-8652-2a2fef9530b4_FPpreview.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\BB_fd9db3f9-1561-4bf5-8652-2a2fef9530b4_FPpreview.mp4"
     },
     {
       "Identity": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\wwwroot\\Images\\1.jpg",

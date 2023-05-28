@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Online_Learning_Platform.Migrations
 {
-    public partial class LessonModel : Migration
+    public partial class CourseInCategory : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -202,7 +202,8 @@ namespace Online_Learning_Platform.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    SubCategoryId = table.Column<int>(type: "int", nullable: false)
+                    SubCategoryId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -213,6 +214,11 @@ namespace Online_Learning_Platform.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Courses_Categoreis_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categoreis",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Courses_SubCategoreis_SubCategoryId",
                         column: x => x.SubCategoryId,
@@ -248,8 +254,8 @@ namespace Online_Learning_Platform.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "c7b013f0-5201-4317-abd8-c211f91b7330", "8de57b6f-b97f-4c92-85dc-4fb4826b0069", "Admin", "ADMIN" },
-                    { "fab4fac1-c546-41de-aebc-a14da6895711", "fc511536-c5f9-4e76-bbea-4b4213439f04", "Teacher", "TEACHER" }
+                    { "c7b013f0-5201-4317-abd8-c211f91b7330", "e6f96582-bf60-4849-8359-fd4117f8a37b", "Admin", "ADMIN" },
+                    { "fab4fac1-c546-41de-aebc-a14da6895711", "301c262a-8509-4186-a93c-e2af85dd7031", "Teacher", "TEACHER" }
                 });
 
             migrationBuilder.InsertData(
@@ -257,8 +263,8 @@ namespace Online_Learning_Platform.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NickName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Year" },
                 values: new object[,]
                 {
-                    { "02174cf0–9412–4cfe - afbf - 59f706d72cf6", 0, "409754a4-a8a0-40c9-945f-7d85626cdaec", "Admin", false, true, null, "Admin", "ADMIN", "ADMIN", "AQAAAAEAACcQAAAAEA5QWDwpHdq1ITJW+q4Br417Mcs8ebC7W3WSHiDCdProxdBsyh9KINXakd8UpnEAtw==", null, false, "acb96ec7-525e-4a92-84ba-458e9300f310", false, "Admin", 1010 },
-                    { "06674cf0–5812–4cfe - afbf - 59f706d72cf6", 0, "dcddf2d7-d9cc-473d-8148-1eb76c1e9db3", "Teacher", false, true, null, "Teacher", "TEACHER", "TEACHER", "AQAAAAEAACcQAAAAEFqTGCwmjo3wPcHyuKlFJvFUd8pn3K69UyddnOiMYGhXb80QKojMDPgZ/HSRFU7KXg==", null, false, "124bbe03-72cb-4b15-becb-ef00e779d5b8", false, "Teacher", 1010 }
+                    { "02174cf0–9412–4cfe - afbf - 59f706d72cf6", 0, "93967a52-687b-40af-bf86-4d958fdf68d0", "Admin", false, true, null, "Admin", "ADMIN", "ADMIN", "AQAAAAEAACcQAAAAEOmYvH/dKI81WZRstUjc5B4P73O/mz9TtNdlnr85XA9Lz7rqo4XPU7rmqsXeQQS26A==", null, false, "b8e2c30f-0a7a-4707-af48-d9cf36cc2e18", false, "Admin", 1010 },
+                    { "06674cf0–5812–4cfe - afbf - 59f706d72cf6", 0, "8ec2cc63-78f9-4cb3-b632-1c0d0c5da52a", "Teacher", false, true, null, "Teacher", "TEACHER", "TEACHER", "AQAAAAEAACcQAAAAEIbIwjmD/KuzvbCiR/Re5AF50pBfXALoh+HrWHknMJcVLoA4/b2RRUXdbFhlO86N8Q==", null, false, "cd8cce5b-39db-4b0d-a8f9-9e20f0711212", false, "Teacher", 1010 }
                 });
 
             migrationBuilder.InsertData(
@@ -330,6 +336,11 @@ namespace Online_Learning_Platform.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Courses_CategoryId",
+                table: "Courses",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Courses_SubCategoryId",

@@ -5,7 +5,7 @@
 @foreach (var item in Model) {
 
     <li  class="nav-item dropdown">
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" asp-controller="Categories" asp-action="Details" asp-route-id="@item.Id">
             @Html.DisplayFor(modelItem => item.Name)
         </a>
         @*<a href="">@Html.DisplayFor(modelItem => item.Name)</a>*@

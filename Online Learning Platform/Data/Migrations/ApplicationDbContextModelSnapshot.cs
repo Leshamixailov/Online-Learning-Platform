@@ -52,14 +52,14 @@ namespace Online_Learning_Platform.Data.Migrations
                         new
                         {
                             Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
-                            ConcurrencyStamp = "8de57b6f-b97f-4c92-85dc-4fb4826b0069",
+                            ConcurrencyStamp = "e6f96582-bf60-4849-8359-fd4117f8a37b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "fab4fac1-c546-41de-aebc-a14da6895711",
-                            ConcurrencyStamp = "fc511536-c5f9-4e76-bbea-4b4213439f04",
+                            ConcurrencyStamp = "301c262a-8509-4186-a93c-e2af85dd7031",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -251,6 +251,9 @@ namespace Online_Learning_Platform.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -269,6 +272,8 @@ namespace Online_Learning_Platform.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("SubCategoryId");
 
@@ -430,16 +435,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "409754a4-a8a0-40c9-945f-7d85626cdaec",
+                            ConcurrencyStamp = "93967a52-687b-40af-bf86-4d958fdf68d0",
                             Email = "Admin",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Admin",
                             NormalizedEmail = "ADMIN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA5QWDwpHdq1ITJW+q4Br417Mcs8ebC7W3WSHiDCdProxdBsyh9KINXakd8UpnEAtw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOmYvH/dKI81WZRstUjc5B4P73O/mz9TtNdlnr85XA9Lz7rqo4XPU7rmqsXeQQS26A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "acb96ec7-525e-4a92-84ba-458e9300f310",
+                            SecurityStamp = "b8e2c30f-0a7a-4707-af48-d9cf36cc2e18",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             Year = 1010
@@ -448,16 +453,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dcddf2d7-d9cc-473d-8148-1eb76c1e9db3",
+                            ConcurrencyStamp = "8ec2cc63-78f9-4cb3-b632-1c0d0c5da52a",
                             Email = "Teacher",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Teacher",
                             NormalizedEmail = "TEACHER",
                             NormalizedUserName = "TEACHER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFqTGCwmjo3wPcHyuKlFJvFUd8pn3K69UyddnOiMYGhXb80QKojMDPgZ/HSRFU7KXg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIbIwjmD/KuzvbCiR/Re5AF50pBfXALoh+HrWHknMJcVLoA4/b2RRUXdbFhlO86N8Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "124bbe03-72cb-4b15-becb-ef00e779d5b8",
+                            SecurityStamp = "cd8cce5b-39db-4b0d-a8f9-9e20f0711212",
                             TwoFactorEnabled = false,
                             UserName = "Teacher",
                             Year = 1010
@@ -517,8 +522,12 @@ namespace Online_Learning_Platform.Data.Migrations
 
             modelBuilder.Entity("Online_Learning_Platform.Models.Course", b =>
                 {
+                    b.HasOne("Online_Learning_Platform.Models.Category", null)
+                        .WithMany("Courses")
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("Online_Learning_Platform.Models.SubCategory", "SubCategory")
-                        .WithMany()
+                        .WithMany("Courses")
                         .HasForeignKey("SubCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -537,7 +546,7 @@ namespace Online_Learning_Platform.Data.Migrations
             modelBuilder.Entity("Online_Learning_Platform.Models.Lesson", b =>
                 {
                     b.HasOne("Online_Learning_Platform.Models.Course", "Course")
-                        .WithMany("Lesson")
+                        .WithMany("Lessons")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -558,12 +567,19 @@ namespace Online_Learning_Platform.Data.Migrations
 
             modelBuilder.Entity("Online_Learning_Platform.Models.Category", b =>
                 {
+                    b.Navigation("Courses");
+
                     b.Navigation("SubCategory");
                 });
 
             modelBuilder.Entity("Online_Learning_Platform.Models.Course", b =>
                 {
-                    b.Navigation("Lesson");
+                    b.Navigation("Lessons");
+                });
+
+            modelBuilder.Entity("Online_Learning_Platform.Models.SubCategory", b =>
+                {
+                    b.Navigation("Courses");
                 });
 #pragma warning restore 612, 618
         }

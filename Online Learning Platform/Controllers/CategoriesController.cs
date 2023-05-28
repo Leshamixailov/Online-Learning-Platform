@@ -35,7 +35,7 @@ namespace Online_Learning_Platform.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categoreis
+            var category = await _context.Categoreis.Include(s => s.SubCategory).ThenInclude(q => q.Courses)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {

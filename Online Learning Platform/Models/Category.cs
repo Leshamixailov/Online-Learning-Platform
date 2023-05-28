@@ -9,5 +9,6 @@
         public string ? Route { get; set; }
 
         public ICollection<SubCategory> ? SubCategory { get; set; }
+        public ICollection<Course>? Courses { get; set; }
     }
 }
