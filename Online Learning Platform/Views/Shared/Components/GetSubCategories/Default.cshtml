@@ -6,8 +6,8 @@
 {
     <ul>
         <li>
-            
-            <a class="dropdown-item" asp-controller="Categories" asp-action="Details" asp-route-id="@item.Id">
+
+            <a class="btn btn-outline-success me-2" asp-controller="Categories" asp-action="Details" asp-route-id="@item.Id">
                 @Html.DisplayFor(modelItem => item.Name)
             </a>
             <ul>
@@ -15,10 +15,12 @@
                 @foreach (var a in item.SubCategory.Where((b) => b.CategoryId == item.Id))
                 {
                     <li>
-                        @a.Name
+                        <a href="#"> @a.Name</a>
+                       
                     </li>
                 }
             </ul>
         </li>
     </ul>
 }
+
