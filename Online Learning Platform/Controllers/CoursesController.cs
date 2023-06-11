@@ -78,7 +78,7 @@ namespace Online_Learning_Platform.Controllers
             course.SubCategoryId = CourseViewModel.SubCategoryId;
             course.Description = CourseViewModel.Description;
             course.Name = CourseViewModel.Name;
-            
+             
             if (CourseViewModel.Image != null)
             {
                 byte[] imageData = null;
