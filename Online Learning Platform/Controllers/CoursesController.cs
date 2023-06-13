@@ -52,6 +52,11 @@ namespace Online_Learning_Platform.Controllers
                 return NotFound();
             }
 
+            var paragraphMarker = Environment.NewLine + Environment.NewLine;
+            var paragraphs = course.Description.Split(new[] { paragraphMarker },
+                                            StringSplitOptions.RemoveEmptyEntries);
+
+            ViewBag.Paragraphs = paragraphs;
             return View(course);
         }
 
@@ -77,6 +82,8 @@ namespace Online_Learning_Platform.Controllers
             course.UserId = id;
             course.SubCategoryId = CourseViewModel.SubCategoryId;
             course.Description = CourseViewModel.Description;
+
+
             course.Name = CourseViewModel.Name;
              
             if (CourseViewModel.Image != null)

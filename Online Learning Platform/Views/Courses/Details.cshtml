@@ -29,6 +29,12 @@
     <div class="col-md-8">
 
         <article class="blog-post">
+
+            @foreach (string a in ViewBag.Paragraphs)
+            {
+                <p>@a</p>
+            }
+           @* <p>@Model.Description</p>*@
             @foreach (Lesson item in Model.Lessons)
             {
 

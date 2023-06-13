@@ -15,13 +15,13 @@
             <form asp-action="Create" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label>Name</label>
-                    <input name="Name" class="form-control" />
+                    <label>Мой курса</label>
+                    <input name="Name" class="form-control" value="Мой курс">
 
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input name="Description" class="form-control" />
+                    <textarea name="Description" rows="15" style="width:100%;">Привет, @User.Identity.Name. Введи сюда содержание твоего курса</textarea>
 
                 </div>
                 <div class="form-group">
