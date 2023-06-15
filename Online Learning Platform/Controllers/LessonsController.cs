@@ -48,9 +48,10 @@ namespace Online_Learning_Platform.Controllers
         }
 
         // GET: Lessons/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
             ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id");
+            ViewBag.Id = id;
             return View();
         }
 

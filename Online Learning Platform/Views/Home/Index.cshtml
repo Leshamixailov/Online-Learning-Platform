@@ -5,7 +5,6 @@
 
 
 
-
 <div class="p-4 p-md-5 mb-4  rounded " style="background-color:darkcyan;color:white">
     <div class="col-md-6 px-0">
         <h1 class="display-4 fst-italic">Начните свое обучение с Learning Platform</h1>
@@ -26,6 +25,10 @@
     <div class="col-md-8">
         
         <article class="blog-post">
+
+           
+           <a class="btn btn-outline-success me-2" asp-controller="Courses" asp-action="Create">Создать курс</a>
+            
             @await Component.InvokeAsync("GetCourses")
         </article>
 
