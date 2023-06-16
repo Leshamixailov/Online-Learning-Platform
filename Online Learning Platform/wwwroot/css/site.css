@@ -164,7 +164,7 @@ input:-ms-input-placeholder {
 .box {
     width: 90%;
     height: contain;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
 }
 .box2 {
