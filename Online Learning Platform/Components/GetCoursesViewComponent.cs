@@ -16,7 +16,7 @@ namespace Online_Learning_Platform.Components
        
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var Courses = await _context.Courses.Include(q=>q.User).ToListAsync();
+            var Courses = await _context.Courses.Include(q=>q.User).OrderByDescending(a => a.DateTime).ToListAsync();
             return View(Courses);
         }
     }

@@ -162,12 +162,18 @@ input:-ms-input-placeholder {
 }
 
 .box {
-    
-    
-    padding: 2em;
-    width: 100%;
+    width: 90%;
+    height: contain;
+    text-align: center;
+    margin: 0 auto;
 }
-
+.box2 {
+    width: 90%;
+    height: contain;
+    text-align: left;
+    margin: 0 auto;
+    
+}
     .box p {
         display: -webkit-box;
         -webkit-line-clamp: 3;

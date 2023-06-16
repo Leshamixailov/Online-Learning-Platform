@@ -10,6 +10,7 @@
         public string UserId { get; set; }
         public int SubCategoryId { get; set; }
        
+        public DateTime DateTime { get; set; }
         public SubCategory? SubCategory { get; set; }
        
         public User? User { get; set; }

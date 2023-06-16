@@ -52,14 +52,14 @@ namespace Online_Learning_Platform.Data.Migrations
                         new
                         {
                             Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
-                            ConcurrencyStamp = "e6f96582-bf60-4849-8359-fd4117f8a37b",
+                            ConcurrencyStamp = "38631d5c-e10d-460d-a788-6c492ca8e2ec",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "fab4fac1-c546-41de-aebc-a14da6895711",
-                            ConcurrencyStamp = "301c262a-8509-4186-a93c-e2af85dd7031",
+                            ConcurrencyStamp = "34c8abbe-5f03-40e7-8bb6-ed0294f54052",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -254,6 +254,9 @@ namespace Online_Learning_Platform.Data.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -435,16 +438,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "93967a52-687b-40af-bf86-4d958fdf68d0",
+                            ConcurrencyStamp = "4cc827a6-4f79-4107-ba93-ea1f94b6dd42",
                             Email = "Admin",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Admin",
                             NormalizedEmail = "ADMIN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOmYvH/dKI81WZRstUjc5B4P73O/mz9TtNdlnr85XA9Lz7rqo4XPU7rmqsXeQQS26A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOGbW+MGANa4p5hGdcPvotgLIU4SmjoAkhVkWy36ciBan9eod2AtFZfwyoQ0+f6byg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b8e2c30f-0a7a-4707-af48-d9cf36cc2e18",
+                            SecurityStamp = "5bc4607e-c66e-48e7-bf23-670cf5882e6e",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             Year = 1010
@@ -453,16 +456,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8ec2cc63-78f9-4cb3-b632-1c0d0c5da52a",
+                            ConcurrencyStamp = "7504ea33-941f-4423-802e-02eff3963bbf",
                             Email = "Teacher",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Teacher",
                             NormalizedEmail = "TEACHER",
                             NormalizedUserName = "TEACHER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIbIwjmD/KuzvbCiR/Re5AF50pBfXALoh+HrWHknMJcVLoA4/b2RRUXdbFhlO86N8Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFRq8KTHuKbkYbT6hALx/jb0/VMNzO4h67Idqz+VH76PfQa+N75KOkrz8tUSg/p7cw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cd8cce5b-39db-4b0d-a8f9-9e20f0711212",
+                            SecurityStamp = "2aedb4c3-a4e2-4490-af8c-5198a090343c",
                             TwoFactorEnabled = false,
                             UserName = "Teacher",
                             Year = 1010

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -65,7 +66,7 @@ namespace Online_Learning_Platform.Controllers
         {
 
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Name");
-
+            ViewBag.DataTime = DateTime.Now;
             return View();
         }
 
@@ -82,7 +83,7 @@ namespace Online_Learning_Platform.Controllers
             course.UserId = id;
             course.SubCategoryId = CourseViewModel.SubCategoryId;
             course.Description = CourseViewModel.Description;
-
+            course.DateTime= CourseViewModel.DateTime; 
 
             course.Name = CourseViewModel.Name;
              
