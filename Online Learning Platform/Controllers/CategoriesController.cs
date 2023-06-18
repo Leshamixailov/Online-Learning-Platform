@@ -1,7 +1,9 @@
 ﻿ using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +20,7 @@ namespace Online_Learning_Platform.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Categories
         public async Task<IActionResult> Index()
         {
@@ -44,7 +46,7 @@ namespace Online_Learning_Platform.Controllers
 
             return View(category);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Categories/Create
         public IActionResult Create()
         {
@@ -56,6 +58,7 @@ namespace Online_Learning_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name,Controller,Action,Route")] Category category)
         {
             if (ModelState.IsValid)
@@ -66,7 +69,7 @@ namespace Online_Learning_Platform.Controllers
             }
             return View(category);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -82,7 +85,7 @@ namespace Online_Learning_Platform.Controllers
             }
             return View(category);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -117,7 +120,7 @@ namespace Online_Learning_Platform.Controllers
             }
             return View(category);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Categories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -135,7 +138,7 @@ namespace Online_Learning_Platform.Controllers
 
             return View(category);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

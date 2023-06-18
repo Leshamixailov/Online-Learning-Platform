@@ -15,7 +15,7 @@
                 @foreach (var a in item.SubCategory.Where((b) => b.CategoryId == item.Id))
                 {
                     <li>
-                        <a href="#"> @a.Name</a>
+                        <a asp-controller="SubCategories" asp-action="Details" asp-route-id="@a.Id"> @a.Name</a>
                        
                     </li>
                 }

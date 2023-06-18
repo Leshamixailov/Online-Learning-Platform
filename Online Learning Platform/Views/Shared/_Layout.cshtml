@@ -10,63 +10,72 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-azure border-bottom box-shadow mb-3" style="background-color: #AFEEEE;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-azure border-bottom box-shadow mb-3" style="background-color: black;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Learning Platform</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color: white">Learning Platform</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Toggle navigation" style="color:white">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color: white">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Конфиденциальность</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy" style="color: white">Конфиденциальность</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" asp-area="" asp-controller="Categories" asp-action="Index" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a style="color: white" class="nav-link dropdown-toggle" asp-area="" asp-controller="Categories" asp-action="Index" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Категории
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @await Component.InvokeAsync("GetCategories")
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Роли</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Курсы</a>
-                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a style="color: white" class="nav-link" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color: white" class="nav-link" asp-area="" asp-controller="Roles" asp-action="Index">Роли</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color: white" class="nav-link" asp-area="" asp-controller="Courses" asp-action="Index">Курсы</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color: white" class="nav-link" asp-area="" asp-controller="Categories" asp-action="Index">Ред.Категории</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color: white" class="nav-link" asp-area="" asp-controller="SubCategories" asp-action="Index">Ред.Подкатегории</a>
+                            </li>
+                        }
                         <form class="d-flex ">
                             <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                            <button class="btn btn-outline-success" type="submit">Поиск</button>
+                            <button class="btn btn-info" type="submit">Поиск</button>
                         </form>
                     </ul>
 
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
+                            <li class="nav-item" style="color: white">
                                 <p>@User.Identity.Name</p>
                             </li>
                             <li class="nav-item">
                                 <form method="post" asp-controller="Account" asp-action="Logout">
-                                    <input class="btn btn-outline-success me-2" type="submit" value="Выход" />
+                                    <input class="btn btn-success me-2" type="submit" value="Выход" />
                                 </form>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="btn btn-outline-success me-2" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+                                <a class="btn btn-primary me-2" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-outline-success me-2" asp-area="" asp-controller="Account" asp-action="Login">Авторизация</a>
+                                <a class="btn btn-success me-2" asp-area="" asp-controller="Account" asp-action="Login">Авторизация</a>
                             </li>
                         }
 

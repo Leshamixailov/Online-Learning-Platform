@@ -11,6 +11,7 @@
     <div class="col-md-8">
 
         <article class="blog-post">
+
             <ul>
                 <li>
                     @foreach (var a in Model.SubCategory)
@@ -30,43 +31,66 @@
 
             @foreach (var b in Model.SubCategory.ToList())
             {
-                @foreach (var a in b.Courses)
+                @foreach (var item in b.Courses)
                 {
 
-                    <div style="width:100%;text-align:center;padding-top:30px;">
 
-                        <div style="box-shadow: 2px 2px 10px #246756;background:darkcyan;">
+                    <div style="width:100%;text-align:center;padding-bottom:30px;">
 
-                            <h3>@Html.DisplayFor(modelItem => a.Name)</h3>
-                            @if (a.Image != null)
+                        <div style="/*box-shadow: 2px 2px 10px #246756*/;background:white;">
+                            @if (User.Identity.IsAuthenticated)
                             {
-                                <img style="width:100%; height:auto; " src="data:image/jpeg;base64,@(Convert.ToBase64String(a.Image))" />
+
+                                <a style="margin-bottom:30px" class="btn btn-danger me-2" asp-controller="Courses" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                             }
-                            else
-                            {
-                                <img style="width:100%; height:auto; " src="https://static.skillshare.com/uploads/discussion/tmp/7ab1b040.png">
-                            }
+                            <div class="box2">
 
-                        </div>
-                        <div style="box-shadow: 2px 2px 10px #246756;background:darkcyan;">
+                                <p style="color:blue;">@Html.DisplayFor(modelItem => item.User.UserName) @item.DateTime.ToString() Просмотры: @Html.DisplayFor(modelItem => item.Count)</p>
 
-                            <div class="box">
 
-                                <p>
-                                    @Html.DisplayFor(modelItem => a.Description)
-                                </p>
-
-                                <p>@Html.DisplayFor(modelItem => a.User.NickName)</p>
                             </div>
 
+                            <a style="text-decoration:none" asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">
+                                <h4 style="color:black">@Html.DisplayFor(modelItem => item.Name)</h4>
+                                @if (item.Image != null)
+                                {
+                                    <img style='width:90%; height:auto; ' src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                                }
+                                else
+                                {
+                                    <img style='width:90%; height:auto; ' src="https://static.skillshare.com/uploads/discussion/tmp/7ab1b040.png">
+                                }
+                            </a>
+                            <a style="text-decoration:none;" asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">
+
+
+                                <div class="box">
+
+                                    <p class="lead my-3" style="color:black;word-wrap: break-word">@item.Description</p>
+
+                                </div>
+
+
+                            </a>
+                            <div class="box2" style="padding-bottom:10px;">
+
+                                <a class="btn btn-outline-success me-2" asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">Читать далее</a>
+
+
+                            </div>
 
                         </div>
+
 
                     </div>
 
+
+
+
+
                 }
             }
-            
+
         </article>
 
 

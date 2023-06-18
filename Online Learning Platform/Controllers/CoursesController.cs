@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +17,7 @@ using Online_Learning_Platform.Models;
 
 namespace Online_Learning_Platform.Controllers
 {
+   
     public class CoursesController : Controller
     {
 
@@ -48,6 +51,10 @@ namespace Online_Learning_Platform.Controllers
                 .Include(c => c.User)
                  .Include(c => c.Lessons)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            course.Count = course.Count + 1;
+
+            _context.Update(course);
+            await _context.SaveChangesAsync();
             if (course == null)
             {
                 return NotFound();
@@ -62,6 +69,7 @@ namespace Online_Learning_Platform.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
 
@@ -84,6 +92,7 @@ namespace Online_Learning_Platform.Controllers
             course.SubCategoryId = CourseViewModel.SubCategoryId;
             course.Description = CourseViewModel.Description;
             course.DateTime= CourseViewModel.DateTime; 
+            course.Count = CourseViewModel.Count;
 
             course.Name = CourseViewModel.Name;
              
@@ -107,60 +116,8 @@ namespace Online_Learning_Platform.Controllers
 
         }
 
-        // GET: Courses/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Courses == null)
-            {
-                return NotFound();
-            }
-
-            var course = await _context.Courses.FindAsync(id);
-            if (course == null)
-            {
-                return NotFound();
-            }
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Id", course.SubCategoryId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", course.UserId);
-            return View(course);
-        }
-
-        // POST: Courses/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Image,UserId,SubCategoryId")] Course course)
-        {
-            if (id != course.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(course);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CourseExists(course.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategoreis, "Id", "Id", course.SubCategoryId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", course.UserId);
-            return View(course);
-        }
+       
+        
 
         // GET: Courses/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -174,6 +131,9 @@ namespace Online_Learning_Platform.Controllers
                 .Include(c => c.SubCategory)
                 .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+           
+
             if (course == null)
             {
                 return NotFound();
@@ -198,7 +158,7 @@ namespace Online_Learning_Platform.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/Home");
         }
 
         private bool CourseExists(int id)

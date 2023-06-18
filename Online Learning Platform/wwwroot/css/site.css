@@ -15,6 +15,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    background-color: #f0f0f0;
 }
 
 .navbar_custom ul {
@@ -166,6 +167,7 @@ input:-ms-input-placeholder {
     height: contain;
     text-align: left;
     margin: 0 auto;
+    
 }
 .box2 {
     width: 90%;

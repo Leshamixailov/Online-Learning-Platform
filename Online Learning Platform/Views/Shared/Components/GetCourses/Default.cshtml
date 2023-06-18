@@ -6,15 +6,24 @@
 @foreach (var item in Model)
 {
 
-
     
-    <div style="width:100%;text-align:center;padding-top:30px;">
+        
+            
+   
+    <div style="width:100%;text-align:center;padding-bottom:30px;">
 
-        <div style="box-shadow: 2px 2px 10px #246756;/*background:darkcyan;*/">
+        <div style="/*box-shadow: 2px 2px 10px #246756*/;background:white;">
+           
+            @if(User.Identity.IsAuthenticated)
+            {
+
+            <a style="margin-bottom:30px" class="btn btn-danger me-2" asp-controller="Courses" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            }
+           
             <div class="box2">
 
-                <p style="color:blue;">@Html.DisplayFor(modelItem => item.User.UserName) @item.DateTime.ToString()</p>
-                
+                <p style="color:blue;">@Html.DisplayFor(modelItem => item.User.UserName) @item.DateTime.ToString() Просмотры: @Html.DisplayFor(modelItem => item.Count)</p>
+              
 
             </div>
             
@@ -48,19 +57,7 @@
             </div>
             
         </div>
-        @*<div style="box-shadow: 2px 2px 10px #246756;/*background:darkcyan*/;">
-            <a style="text-decoration:none" asp-controller="Courses" asp-action="Details" asp-route-id="@item.Id">
-                
-              
-                <div class="box">
-
-                    <p class="lead my-3" style="color:black;word-wrap: break-word">@item.Description</p>
-                    <p style="color:white">@Html.DisplayFor(modelItem => item.User.UserName)</p>
-                </div>
-                
-                
-            </a>
-        </div>*@
+        
         
     </div>
 

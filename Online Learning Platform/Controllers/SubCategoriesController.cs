@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +20,7 @@ namespace Online_Learning_Platform.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: SubCategories
         public async Task<IActionResult> Index()
         {
@@ -44,14 +46,14 @@ namespace Online_Learning_Platform.Controllers
 
             return View(subCategory);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: SubCategories/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Name");
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: SubCategories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,10 +67,10 @@ namespace Online_Learning_Platform.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Name", subCategory.CategoryId);
             return View(subCategory);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: SubCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -82,10 +84,10 @@ namespace Online_Learning_Platform.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Name", subCategory.CategoryId);
             return View(subCategory);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: SubCategories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -118,10 +120,10 @@ namespace Online_Learning_Platform.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Id", subCategory.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categoreis, "Id", "Name", subCategory.CategoryId);
             return View(subCategory);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: SubCategories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -140,7 +142,7 @@ namespace Online_Learning_Platform.Controllers
 
             return View(subCategory);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: SubCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

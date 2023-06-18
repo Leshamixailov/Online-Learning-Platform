@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +14,7 @@ using Online_Learning_Platform.ViewModels;
 
 namespace Online_Learning_Platform.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LessonsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -46,7 +50,7 @@ namespace Online_Learning_Platform.Controllers
 
             return View(lesson);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Lessons/Create
         public IActionResult Create(int id)
         {
@@ -74,13 +78,18 @@ namespace Online_Learning_Platform.Controllers
                 }
                 lesson.Path = path;
             }
+            else
+            {
+                lesson.Path = "null";
+            }
             lesson.Name = LessonViewModel.Name;
             lesson.CourseId = LessonViewModel.CourseId;
             lesson.Description= LessonViewModel.Description;
+            lesson.Type = LessonViewModel.Type;
            
             _context.Add(lesson);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/Courses/Details/" + LessonViewModel.CourseId.ToString()); 
 
 
         }
@@ -167,14 +176,18 @@ namespace Online_Learning_Platform.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Lessons'  is null.");
             }
             var lesson = await _context.Lessons.FindAsync(id);
+            int IdCourse = lesson.CourseId;
             if (lesson != null)
             {
                 _context.Lessons.Remove(lesson);
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/Courses/Details/"+ IdCourse.ToString());
+            
+
         }
+        
 
         private bool LessonExists(int id)
         {

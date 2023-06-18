@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-success" asp-action="Create">Создать пост</a>
 </p>
 
 <ul >
@@ -29,9 +29,17 @@
                     <p>
                         @Html.DisplayFor(modelItem => item.Description)
                     </p>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <p>
+                        Время:  @Html.DisplayFor(modelItem => item.DateTime)
+                    </p>
+                    <p>
+                        Создатель: @Html.DisplayFor(modelItem => item.User.Email)
+                    </p>
+                    <p>
+                        Просмотры : @Html.DisplayFor(modelItem => item.Count)
+                    </p>
 
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                     <p>@Html.DisplayFor(modelItem => item.User.NickName)</p>
                 </div>
             </a>
