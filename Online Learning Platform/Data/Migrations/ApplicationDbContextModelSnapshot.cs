@@ -52,14 +52,14 @@ namespace Online_Learning_Platform.Data.Migrations
                         new
                         {
                             Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
-                            ConcurrencyStamp = "020a958e-091b-4535-989e-326c5dcd5d64",
+                            ConcurrencyStamp = "e93b9e4f-29d3-4fb6-ba73-d5348ef6f3dc",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "fab4fac1-c546-41de-aebc-a14da6895711",
-                            ConcurrencyStamp = "659e1550-56ea-4842-9dbc-a98068376328",
+                            ConcurrencyStamp = "978543d5-7780-4333-9659-154612981f82",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -266,8 +266,14 @@ namespace Online_Learning_Platform.Data.Migrations
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("Keywords")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Preview")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SubCategoryId")
@@ -445,16 +451,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d3c5390f-3080-4fc5-bf39-2dab04338d91",
+                            ConcurrencyStamp = "e3140763-bbfc-4790-824d-6c8e4cf5dca4",
                             Email = "Admin",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Admin",
                             NormalizedEmail = "ADMIN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGRvhF4Fi0j+mUwhsJTLrKEIYQIgAffAPW664mygNEP9194Yv3+h0BxtAHg+gJvWhw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDej8RVjwv+dnUdRXyfPzZUx/7ZvlFthSYXYK/Sz/9t0t2g0YLSg0HyGoyyLs2h5sw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8950767-824a-4fe6-9f28-7ac4bffb9f31",
+                            SecurityStamp = "6528a4b7-67ac-4ec8-b01a-9bb24444d391",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             Year = 1010
@@ -463,16 +469,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b7e8c9d2-9091-4b5f-912d-80eb87f171d1",
+                            ConcurrencyStamp = "02af4fb2-f3cf-4e6e-a3ee-15e5744c05ee",
                             Email = "Teacher",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Teacher",
                             NormalizedEmail = "TEACHER",
                             NormalizedUserName = "TEACHER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDkQPMlyVZqHIuuF9t1FLhuORqS7F9hasp5tXhgMi0Mv5mjY5PYP4Kgs6avK1GzL9g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELPNfVF/X73AujOjc+VziaHlKC4uyhsAKRxhk0aEzqtII9nKA5P5nsQTYoi6P8BLQQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c97b1807-366f-46a5-85f0-03951fea8c10",
+                            SecurityStamp = "74cbdef5-0527-49ad-bb77-a81bc92c4c44",
                             TwoFactorEnabled = false,
                             UserName = "Teacher",
                             Year = 1010

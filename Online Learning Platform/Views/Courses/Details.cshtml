@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = Model.Name;
+    ViewData["Description"] = Model.Description;
+    ViewData["Keywords"] = Model.Keywords;
 }
 <div>
     <a class="btn btn-success me-2" asp-controller="Lessons" asp-action="Create" asp-route-id="@Model.Id">Добавить вложение</a>
@@ -34,12 +36,12 @@
                 </div>
 
             </div>
-            <div>
+            @*<div>
                 @foreach (string a in ViewBag.Paragraphs)
                 {
                     <p>@a</p>
                 }
-            </div>
+            </div>*@
             @* <p>@Model.Description</p>*@
             @if (User.IsInRole("Admin"))
                 @foreach (Lesson item in Model.Lessons)

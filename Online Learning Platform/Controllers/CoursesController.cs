@@ -93,6 +93,8 @@ namespace Online_Learning_Platform.Controllers
             course.Description = CourseViewModel.Description;
             course.DateTime= CourseViewModel.DateTime; 
             course.Count = CourseViewModel.Count;
+            course.Keywords = CourseViewModel.Keywords;
+            course.Preview = CourseViewModel.Preview;
 
             course.Name = CourseViewModel.Name;
              
