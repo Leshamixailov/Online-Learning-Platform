@@ -1846,6 +1846,22 @@
           }
         }
       },
+      "NickBuhro.Translit/1.4.5": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/NickBuhro.Translit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.3/NickBuhro.Translit.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "NuGet.Common/6.3.1": {
         "type": "package",
         "dependencies": {
@@ -6248,6 +6264,27 @@
         "packageIcon.png"
       ]
     },
+    "NickBuhro.Translit/1.4.5": {
+      "sha512": "C4Hy1hXOvmisfjsHdFIFCqrqT4y8wrn7UUHATDVNGQhDMg2StIVHr7SJ17yE6z1TjYjZnv1iYeoahzwN3FdtYg==",
+      "type": "package",
+      "path": "nickbuhro.translit/1.4.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/NickBuhro.Translit.dll",
+        "lib/net20/NickBuhro.Translit.xml",
+        "lib/net35/NickBuhro.Translit.dll",
+        "lib/net35/NickBuhro.Translit.xml",
+        "lib/net40/NickBuhro.Translit.dll",
+        "lib/net40/NickBuhro.Translit.xml",
+        "lib/net45/NickBuhro.Translit.dll",
+        "lib/net45/NickBuhro.Translit.xml",
+        "lib/netstandard1.3/NickBuhro.Translit.dll",
+        "lib/netstandard1.3/NickBuhro.Translit.xml",
+        "nickbuhro.translit.1.4.5.nupkg.sha512",
+        "nickbuhro.translit.nuspec"
+      ]
+    },
     "NuGet.Common/6.3.1": {
       "sha512": "/WgxNyc9dXl+ZrQJDf5BXaqtMbl0CcDC5GEQITecbHZBQHApTMuxeTMMEqa0Y+PD1CIxTtbRY4jmotKS5dsLuA==",
       "type": "package",
@@ -10455,7 +10492,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 6.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.16",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.16",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.13"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.13",
+      "NickBuhro.Translit >= 1.4.5"
     ]
   },
   "packageFolders": {
@@ -10464,11 +10502,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\Source\\Repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
       "projectName": "Online Learning Platform",
-      "projectPath": "C:\\Users\\admin\\Source\\Repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
+      "projectPath": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\Online Learning Platform.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\Source\\Repos\\Online-Learning-Platform\\Online Learning Platform\\obj\\",
+      "outputPath": "C:\\Users\\admin\\source\\repos\\Online-Learning-Platform\\Online Learning Platform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10522,6 +10560,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.13, )"
+          },
+          "NickBuhro.Translit": {
+            "target": "Package",
+            "version": "[1.4.5, )"
           }
         },
         "imports": [

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using NickBuhro.Translit;
 using Online_Learning_Platform.Data;
 using System.Data;
 using System.Security.Cryptography.X509Certificates;
@@ -22,6 +23,7 @@ namespace Online_Learning_Platform.Models
                    {
                        Id = 1,
                        Name = "Категория 1",
+                       NameCPU = Transliteration.CyrillicToLatin("Категория 1", Language.Russian).Replace(" ", "_"),
                        Controller = "",
                        Action = "",
                        Route = ""
@@ -31,6 +33,7 @@ namespace Online_Learning_Platform.Models
                 {
                     Id = 2,
                     Name = "Категория 2",
+                    NameCPU = Transliteration.CyrillicToLatin("Категория 2", Language.Russian).Replace(" ", "_"),
                     Controller = "",
                     Action = "",
                     Route = ""
@@ -40,6 +43,7 @@ namespace Online_Learning_Platform.Models
                  {
                      Id = 3,
                      Name = "Категория 3",
+                     NameCPU = Transliteration.CyrillicToLatin("Категория 3", Language.Russian).Replace(" ", "_"),
                      Controller = "",
                      Action = "",
                      Route = ""
@@ -49,6 +53,7 @@ namespace Online_Learning_Platform.Models
                   {
                       Id = 4,
                       Name = "Категория 4",
+                      NameCPU = Transliteration.CyrillicToLatin("Категория 4", Language.Russian).Replace(" ", "_"),
                       Controller = "",
                       Action = "",
                       Route = ""

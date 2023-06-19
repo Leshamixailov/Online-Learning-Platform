@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NickBuhro.Translit;
 using Online_Learning_Platform.Data;
 using Online_Learning_Platform.Models;
 
@@ -24,21 +25,21 @@ namespace Online_Learning_Platform.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-              return _context.Categoreis != null ? 
-                          View(await _context.Categoreis.Include(s => s.SubCategory).ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Categoreis'  is null.");
+            return _context.Categoreis != null ?
+                        View(await _context.Categoreis.Include(s => s.SubCategory).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Categoreis'  is null.");
         }
 
         // GET: Categories/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? nameCPU)
         {
-            if (id == null || _context.Categoreis == null)
+            if (_context.Categoreis == null)
             {
                 return NotFound();
             }
 
             var category = await _context.Categoreis.Include(s => s.SubCategory).ThenInclude(q => q.Courses)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.NameCPU == nameCPU);
             if (category == null)
             {
                 return NotFound();
@@ -61,13 +62,12 @@ namespace Online_Learning_Platform.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name,Controller,Action,Route")] Category category)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(category);
+            category.NameCPU = Transliteration.CyrillicToLatin(category.Name, Language.Russian).Replace(" ", "_");
+
+            _context.Add(category);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
         }
         [Authorize(Roles = "Admin")]
         // GET: Categories/Edit/5
@@ -153,14 +153,14 @@ namespace Online_Learning_Platform.Controllers
             {
                 _context.Categoreis.Remove(category);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoryExists(int id)
         {
-          return (_context.Categoreis?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Categoreis?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

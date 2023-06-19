@@ -42,9 +42,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{nameCPU?}");
 
+//app.MapControllerRoute(
+//    name: "default1",
+//    pattern: "{controller=Home}/{action=Index}/{name?}");
 
 app.Run();

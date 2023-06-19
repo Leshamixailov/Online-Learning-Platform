@@ -1,9 +1,14 @@
-﻿namespace Online_Learning_Platform.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Online_Learning_Platform.Models
 {
     public class Course
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
+        public string ? NameCPU { get; set; }
         public string ? Description { get; set; }
         public byte[] ? Image { get; set; }
 

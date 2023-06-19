@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NickBuhro.Translit;
 using Online_Learning_Platform.Data;
 using Online_Learning_Platform.Models;
 
@@ -39,9 +40,9 @@ namespace Online_Learning_Platform.Controllers
         }
 
         // GET: Courses/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string ? nameCPU)
         {
-            if (id == null || _context.Courses == null)
+            if ( _context.Courses == null)
             {
                 return NotFound();
             }
@@ -50,7 +51,7 @@ namespace Online_Learning_Platform.Controllers
                 .Include(c => c.SubCategory)
                 .Include(c => c.User)
                  .Include(c => c.Lessons)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.NameCPU == nameCPU);
             course.Count = course.Count + 1;
 
             _context.Update(course);
@@ -95,7 +96,7 @@ namespace Online_Learning_Platform.Controllers
             course.Count = CourseViewModel.Count;
             course.Keywords = CourseViewModel.Keywords;
             course.Preview = CourseViewModel.Preview;
-
+            course.NameCPU = Transliteration.CyrillicToLatin(CourseViewModel.Name, Language.Russian).Replace(" ", "_");
             course.Name = CourseViewModel.Name;
              
             if (CourseViewModel.Image != null)

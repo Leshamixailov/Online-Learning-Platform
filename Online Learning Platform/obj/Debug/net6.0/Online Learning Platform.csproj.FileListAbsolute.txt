@@ -838,3 +838,4 @@ C:\Users\admin\Source\Repos\Online-Learning-Platform2\Online Learning Platform\o
 C:\Users\admin\Source\Repos\Online-Learning-Platform2\Online Learning Platform\obj\Debug\net6.0\Online Learning Platform.pdb
 C:\Users\admin\Source\Repos\Online-Learning-Platform2\Online Learning Platform\obj\Debug\net6.0\Online Learning Platform.genruntimeconfig.cache
 C:\Users\admin\Source\Repos\Online-Learning-Platform2\Online Learning Platform\obj\Debug\net6.0\ref\Online Learning Platform.dll
+C:\Users\admin\source\repos\Online-Learning-Platform\Online Learning Platform\bin\Debug\net6.0\NickBuhro.Translit.dll

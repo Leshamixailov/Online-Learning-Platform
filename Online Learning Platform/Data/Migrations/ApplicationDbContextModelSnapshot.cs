@@ -52,14 +52,14 @@ namespace Online_Learning_Platform.Data.Migrations
                         new
                         {
                             Id = "c7b013f0-5201-4317-abd8-c211f91b7330",
-                            ConcurrencyStamp = "e93b9e4f-29d3-4fb6-ba73-d5348ef6f3dc",
+                            ConcurrencyStamp = "a822d720-2c20-4382-a316-3512f3846d64",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "fab4fac1-c546-41de-aebc-a14da6895711",
-                            ConcurrencyStamp = "978543d5-7780-4333-9659-154612981f82",
+                            ConcurrencyStamp = "e90dd0c4-a4be-49a3-b2ff-d787aef40500",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -201,6 +201,10 @@ namespace Online_Learning_Platform.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NameCPU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Route")
                         .HasColumnType("nvarchar(max)");
 
@@ -215,6 +219,7 @@ namespace Online_Learning_Platform.Data.Migrations
                             Action = "",
                             Controller = "",
                             Name = "Категория 1",
+                            NameCPU = "Kategoriya_1",
                             Route = ""
                         },
                         new
@@ -223,6 +228,7 @@ namespace Online_Learning_Platform.Data.Migrations
                             Action = "",
                             Controller = "",
                             Name = "Категория 2",
+                            NameCPU = "Kategoriya_2",
                             Route = ""
                         },
                         new
@@ -231,6 +237,7 @@ namespace Online_Learning_Platform.Data.Migrations
                             Action = "",
                             Controller = "",
                             Name = "Категория 3",
+                            NameCPU = "Kategoriya_3",
                             Route = ""
                         },
                         new
@@ -239,6 +246,7 @@ namespace Online_Learning_Platform.Data.Migrations
                             Action = "",
                             Controller = "",
                             Name = "Категория 4",
+                            NameCPU = "Kategoriya_4",
                             Route = ""
                         });
                 });
@@ -270,6 +278,10 @@ namespace Online_Learning_Platform.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameCPU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -451,16 +463,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "02174cf0–9412–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e3140763-bbfc-4790-824d-6c8e4cf5dca4",
+                            ConcurrencyStamp = "2c284b82-d0d7-4f79-a61c-2e015c6c0254",
                             Email = "Admin",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Admin",
                             NormalizedEmail = "ADMIN",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDej8RVjwv+dnUdRXyfPzZUx/7ZvlFthSYXYK/Sz/9t0t2g0YLSg0HyGoyyLs2h5sw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBlmr38xANM11aOlWA7BtD9w8rMevy3NRofdGDsBH80KDXz5rzpg7k/Vm2se37pnbw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6528a4b7-67ac-4ec8-b01a-9bb24444d391",
+                            SecurityStamp = "bcccc1b1-b47e-4cc3-a788-0ab2de303ecb",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             Year = 1010
@@ -469,16 +481,16 @@ namespace Online_Learning_Platform.Data.Migrations
                         {
                             Id = "06674cf0–5812–4cfe - afbf - 59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "02af4fb2-f3cf-4e6e-a3ee-15e5744c05ee",
+                            ConcurrencyStamp = "34604626-9f55-406f-86de-a4f68781a066",
                             Email = "Teacher",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NickName = "Teacher",
                             NormalizedEmail = "TEACHER",
                             NormalizedUserName = "TEACHER",
-                            PasswordHash = "AQAAAAEAACcQAAAAELPNfVF/X73AujOjc+VziaHlKC4uyhsAKRxhk0aEzqtII9nKA5P5nsQTYoi6P8BLQQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE5CAfq539XYOJlWN3XXxlkgB69n7Fj8IV8GcnTdYBq/ZUGBaan/vL3x0uE7FfgvTw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "74cbdef5-0527-49ad-bb77-a81bc92c4c44",
+                            SecurityStamp = "3d79d6c6-27f8-40fb-80e2-634ee90fd23a",
                             TwoFactorEnabled = false,
                             UserName = "Teacher",
                             Year = 1010
